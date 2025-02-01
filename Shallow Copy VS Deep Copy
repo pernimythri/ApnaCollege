@@ -1,0 +1,89 @@
+class Address {
+    String city;
+    
+    Address(String city) {
+        this.city = city;
+    }
+}
+
+class Student {
+    String name;
+    Address address; // Reference type
+
+    Student(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    Student(Student other) {
+        this.name = other.name;
+        this.address = other.address; // Copies reference, not a new object
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Address addr1 = new Address("New York");
+        Student s1 = new Student("Alice", addr1);
+        Student s2 = new Student(s1); 
+
+        System.out.println("Before modifying s2:");
+        System.out.println("s1.address.city = " + s1.address.city); // Output: New York
+        System.out.println("s2.address.city = " + s2.address.city); // Output: New York
+
+        s2.address.city = "Los Angeles";
+
+        System.out.println("\nAfter modifying s2:");
+        System.out.println("s1.address.city = " + s1.address.city); // Output: Los Angeles (also changes!)
+        System.out.println("s2.address.city = " + s2.address.city); // Output: Los Angeles
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------
+A deep copy ensures that changes in one object do not affect another. 
+Unlike shallow copy, a deep copy creates new instances for nested objects instead of just copying references.
+
+
+class Address {
+    String city;
+    
+    Address(String city) {
+        this.city = city;
+    }
+
+    Address(Address other) {
+        this.city = other.city;
+    }
+}
+
+class Student {
+    String name;
+    Address address; // Reference type
+
+    Student(String name, Address address) {
+        this.name = name;
+        this.address = new Address(address); 
+    }
+
+    Student(Student other) {
+        this.name = other.name;
+        this.address = new Address(other.address); 
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Address addr1 = new Address("New York");
+        Student s1 = new Student("Alice", addr1);
+        Student s2 = new Student(s1); 
+
+        System.out.println("Before modifying s2:");
+        System.out.println("s1.address.city = " + s1.address.city); // Output: New York
+        System.out.println("s2.address.city = " + s2.address.city); // Output: New York
+
+        s2.address.city = "Los Angeles";
+
+        System.out.println("\nAfter modifying s2:");
+        System.out.println("s1.address.city = " + s1.address.city); // Output: New York (unchanged)
+        System.out.println("s2.address.city = " + s2.address.city); // Output: Los Angeles
+    }
+}
