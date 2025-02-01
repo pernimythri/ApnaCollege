@@ -1,0 +1,50 @@
+class Student{
+    String name;
+    int age;
+    
+    // Non Parameterized Constructor
+    Student()
+    {
+        System.out.println("Constructor called");
+    }
+    
+    // Parameterized Constructor
+    Student(String name,int age)
+    {
+        this.name=name;
+        this.age=age;
+    }
+    
+    // Copy Constructor
+    Student(Student other)
+    {
+        this.name=other.name;
+        this.age=other.age;
+    }
+    
+    public void displayInfo()
+    {
+        System.out.println(name+" "+age);
+    }
+}
+
+class Main{            
+    public static void main(String args[])
+    {
+        Student s1=new Student();
+        s1.displayInfo();
+        
+        Student s2=new Student("vinay",17);
+        s2.displayInfo();
+        
+        Student s3=new Student(s2);
+        s3.displayInfo();
+        
+    }
+}
+
+output:
+Constructor called
+null 0
+vinay 17
+vinay 17
