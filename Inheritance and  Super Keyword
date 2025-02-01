@@ -1,0 +1,53 @@
+// Using constructors to pass parameters
+
+class Shape{
+    public void area(){
+        System.out.println("Area");
+    }
+}
+
+class Triangle extends Shape{
+    int length;
+    int height;
+    Triangle(int length,int height)
+    {
+        this.length=length;
+        this.height=height;
+    }
+    public void area(){
+        super.area(); // to call parent area method also use super keyword
+        System.out.println((length*height)/2);
+    }
+}
+
+class Main{
+    public static void main(String args[])
+    {
+        Triangle t1=new Triangle(4,5);
+        t1.area();
+    }
+}
+-------------------------------------------------------------------------------------
+// Directly passing parameters to method without constructors
+class Shape{
+    public void area(){
+        System.out.println("Area");
+    }
+}
+
+class Triangle extends Shape{
+    
+    public void area(int length,int height){
+        super.area();
+        System.out.println((length*height)/2);
+    }
+}
+
+class Main{
+    public static void main(String args[])
+    {
+        Triangle t1=new Triangle();
+        t1.area(4,5);
+    }
+}
+--------------------------------------------------------------------------------------------
