@@ -1,0 +1,30 @@
+class pen{
+    String color="black";
+    String brand;
+    public void display()
+    {
+        String color="green";
+        System.out.println(this.color);
+        System.out.println(color);
+    }
+}
+
+class Main{            
+    public static void main(String args[])
+    {
+        pen p1=new pen();
+        p1.color="red";
+        p1.display();
+        
+        pen p2=new pen();
+        p2.color="blue";
+        p2.display();
+    }
+}
+
+output :
+red
+green
+blue
+green
+--------------------------------------------------------------------------
