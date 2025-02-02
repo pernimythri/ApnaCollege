@@ -51,3 +51,72 @@ class Main{
     }
 }
 --------------------------------------------------------------------------------------------
+// Multi Level Inheritance
+class Animal{
+    void makeSound(){
+        System.out.println("Sound");
+    }
+}
+
+class Mammal extends Animal{
+    void hasFur()
+    {
+        System.out.println("Yes");
+    }
+}
+
+class Dog extends Mammal{
+    void bark(){
+        System.out.println("Woof");
+    }
+}
+
+
+class Main{
+    public static void main(String args[])
+    {
+        Dog d1=new Dog();
+        d1.makeSound();
+        d1.hasFur();
+        d1.bark();
+    }
+}
+
+output:
+Sound
+Yes
+Woof
+--------------------------------------------------------------
+// Hierarchial Inheritance
+
+class Animal{
+    void makeSound(){
+        System.out.println("Sound");
+    }
+}
+
+class Cat extends Animal{
+    void meow()
+    {
+        System.out.println("Meow");
+    }
+}
+
+class Dog extends Animal{
+    void bark(){
+        System.out.println("Woof");
+    }
+}
+
+class Main{
+    public static void main(String args[])
+    {
+        Cat c1=new Cat();
+        c1.meow();
+        c1.makeSound();
+        Dog d1=new Dog();
+        d1.bark();
+        d1.makeSound();
+    }
+}
+-----------------------------------------------------------------
