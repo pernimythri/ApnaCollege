@@ -1,0 +1,32 @@
+// Access Private Members using getter and setter methods
+
+class Account{
+    public String name="fs";
+    protected String email;
+    private String password;
+    
+     void display()
+    {
+        System.out.print(name+" "+email+" "+password);
+    }
+    
+    String getPassword()
+    {
+        return this.password;
+    }
+    
+    void setPassword(String password){
+        this.password=password;
+    }
+}
+
+public class Main{
+    public static void main(String args[])
+    {
+        Account account =new Account();
+        account.name="vinay";
+        account.email="pernivinay03@gmail.com";
+        account.setPassword("vinay kumar");
+        account.display();
+    }
+}
